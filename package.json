@@ -21,6 +21,8 @@
   "homepage": "https://github.com/mrubenstein6192/Project_2#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "bcrypt": "^3.0.6",
+    "dotenv": "^8.0.0",
     "express": "^4.16.4",
     "mongoose": "^5.5.8"
   },
