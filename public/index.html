@@ -7,15 +7,83 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-  <link rel="stylesheet" href="style.css">
-  <title>Title</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Travel App</title>
 </head>
 
-<body>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <h2>Find Your Travel Info!</h2>
+      <div id="search ">
+        <form id="search-form">
+          <div class="form-group">
+            <label for="location-input">location</label>
+            <input type="text" id="location" class="form-control" />
+          </div>
+          <button type="submit" class="btn btn-block btn-success">Login!</button>
+        </form>
+      </div>
+      <div id="results"></div>
+    </div>
+    <div class="col-12 col-md-4">
+      <h3 id="right-column-title">Login/Sign Up!</h3>
+      <div class="list-group list-group-horizontal-md" id="user-tabs" role="tablist">
+        <a class="list-group-item list-group-item-action active" data-toggle="list" href="#login" role="tab">Login</a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#signup" role="tab">Sign Up!</a>
+      </div>
+      <div class="tab-content my-4" id="forms">
+        <div class="tab-pane active" id="login" role="tabpanel">
+          <form id="login-form">
+            <div class="form-group">
+              <label for="email-input-login">Email</label>
+              <input type="text" id="email-input-login" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="password-input-login">password</label>
+              <input type="password" id="password-input-login" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-block btn-success">Login!</button>
+          </form>
+        </div>
+        <div class="tab-pane" id="signup" role="tabpanel">
+          <form id="signup-form">
+            <div class="form-group">
+              <label for="first-name-input">First Name</label>
+              <input type="text" id="first-name-input" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="last-name-input">Last Name</label>
+              <input type="text" id="last-name-input" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="email-input">Email</label>
+              <input type="text" id="email-input" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="password-input">password</label>
+              <input type="password" id="password-input" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-block btn-success">Login!</button>
+          </form>
+        </div>
+      </div>
+      <div id="user-info">
+        <h3 id="full-name"></h3>
+        <button id="get-searches" class="btn btn-block btn-info">Show Past Searches!</button>
+        <button id="logout" class="btn btn-block btn-warning"> logout</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+
+<body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="./assets/js/app.js"></script>
 </body>
 
 </html>
