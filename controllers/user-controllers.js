@@ -2,6 +2,8 @@ const jwt = require("jsonwebtoken");
 const { User } = require("../models");
 const handle = require("../utils/promise-handler");
 
+const secret = "supersecret"
+
 const register = (req, res) => {
   const { email, password, firstName, lastName } = req.body;
 
@@ -12,7 +14,7 @@ const register = (req, res) => {
   user.save(err => {
     if(err){
       console.log(err);
-      res.statues(500).json({
+      res.status(500).json({
         success: false,
         message: "New user registration Error, try again."
       });
@@ -60,7 +62,7 @@ const login = async (req, res) => {
         _id : userInfo._id,
         email: userInfo.email
       }
-      const token = jwt.sign(payload, process.env.secret, {
+      const token = jwt.sign(payload, secret, {
         expiresIn: "1h"
       });
       res.status(200).json(token);
@@ -69,7 +71,7 @@ const login = async (req, res) => {
 }
 
 const getUserProfile = async(req,res) => {
-  const [userErr, userProfile] = await handle(user.findById(req._id));
+  const [userErr, userProfile] = await handle(User.findById(req._id));
   
   if(userErr){
     res.status(500).json(userErr);
