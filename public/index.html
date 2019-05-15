@@ -14,68 +14,81 @@
 <div class="container my-5">
   <div class="row">
     <div class="col-12 col-md-8">
-      <h2>Find Your Travel Info!</h2>
-      <div id="search">
-        <form id="search-form">
-          <div class="form-group">
-            <label for="location-input">location</label>
-            <input type="text" id="location-input" class="form-control" />
-          </div>
-          <button type="submit" class="btn btn-block btn-success">Search</button>
-        </form>
+      <div class="card">
+        <h2 class="card-header">Find Your Travel Info!</h2>
+        <div id="search" class="card-body">
+          <form id="search-form">
+            <div class="form-group">
+              <h4><label for="location-input">location</label></h4>
+              <input type="text" id="location-input" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-block btn-success">Search</button>
+          </form>
+        </div>
       </div>
-      <div class="mt-2" id="results">
-        <button id="save-search">Save your Search!</button>
-        <button id="new-search">Make a new search!</button>
+      <div class="card" id="results">
+        <h2 class="card-header">Your Travel Results</h2>
+        <div class="mt-2 card-body" id="results">
+          <button id="save-search">Save your Search!</button>
+          <button id="new-search">Make a new search!</button>
+        </div>
       </div>
     </div>
     <div class="col-12 col-md-4">
-      <h3 id="right-column-title">Login/Sign Up!</h3>
-      <div class="list-group list-group-horizontal-md" id="user-tabs" role="tablist">
-        <a class="list-group-item list-group-item-action active" data-toggle="list" href="#login" role="tab">Login</a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#signup" role="tab">Sign Up!</a>
-      </div>
-      <div class="tab-content my-4" id="forms">
-        <div class="tab-pane active" id="login" role="tabpanel">
-          <form id="login-form">
-            <div class="form-group">
-              <label for="email-input-login">Email</label>
-              <input type="text" id="email-input-login" class="form-control" />
+      <div class="card">
+        <h3 id="right-column-title" class="card-header">Login/Sign Up!</h3>
+        <div class="card-body">
+          <div class="list-group list-group-horizontal-md" id="user-tabs" role="tablist">
+            <a class="list-group-item list-group-item-action active" data-toggle="list" href="#login"
+              role="tab">Login</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#signup" role="tab">Sign Up!</a>
+          </div>
+          <div class="tab-content my-4" id="forms">
+            <div class="tab-pane active" id="login" role="tabpanel">
+              <form id="login-form">
+                <div class="form-group">
+                  <label for="email-input-login">Email</label>
+                  <input type="text" id="email-input-login" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="password-input-login">password</label>
+                  <input type="password" id="password-input-login" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-block btn-success">Login!</button>
+              </form>
             </div>
-            <div class="form-group">
-              <label for="password-input-login">password</label>
-              <input type="password" id="password-input-login" class="form-control" />
+            <div class="tab-pane" id="signup" role="tabpanel">
+              <form id="signup-form">
+                <div class="form-group">
+                  <label for="first-name-input">First Name</label>
+                  <input type="text" id="first-name-input" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="last-name-input">Last Name</label>
+                  <input type="text" id="last-name-input" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="email-input">Email</label>
+                  <input type="text" id="email-input" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="password-input">password</label>
+                  <input type="password" id="password-input" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-block btn-success">Login!</button>
+              </form>
             </div>
-            <button type="submit" class="btn btn-block btn-success">Login!</button>
-          </form>
+          </div>
+
         </div>
-        <div class="tab-pane" id="signup" role="tabpanel">
-          <form id="signup-form">
-            <div class="form-group">
-              <label for="first-name-input">First Name</label>
-              <input type="text" id="first-name-input" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="last-name-input">Last Name</label>
-              <input type="text" id="last-name-input" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="email-input">Email</label>
-              <input type="text" id="email-input" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="password-input">password</label>
-              <input type="password" id="password-input" class="form-control" />
-            </div>
-            <button type="submit" class="btn btn-block btn-success">Login!</button>
-          </form>
-        </div>
       </div>
-      <div id="user-info">
-        <h3 id="full-name"></h3>
-        <button id="get-searches" class="btn btn-block btn-info">Show Past Searches!</button>
-        <button id="logout" class="btn btn-block btn-warning"> logout</button>
-        <div id="past-searches"></div>
+      <div id="user-info" class="card">
+        <h3 id="full-name" class="card-header font-weight-bold"></h3>
+        <div class="card-body">
+          <button id="get-searches" class="btn btn-block btn-info">Show Past Searches!</button>
+          <button id="logout" class="btn btn-block btn-warning"> logout</button>
+          <div id="past-searches"></div>
+        </div>
       </div>
     </div>
   </div>
