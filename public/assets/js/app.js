@@ -231,6 +231,30 @@ $(document).ready(function () {
     getUserProfile();
   }
 });
+  
+//translator section
+$(document).on("click", "#translate-submit", function() {
+  $("#translator-results").empty();
+  
+
+  var text = $("#text-input").val().trim().toLowerCase().replace(/ /g, "%20");
+  var lang = $("#lang-input").val();
+
+  var translateURL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20190515T140015Z.469d4504237e43c4.5ad62c8589944f5eb4db838232d59b19a991dc73&text=" + text + "&lang=" + lang + "&options=1";
+  
+  console.log(text);
+  console.log(lang);
+  
+  $.ajax({
+    url: translateURL,
+    method: "GET"
+  }).then(function(response) {
+    
+    console.log(response.text[0]);
+    var result = response.text[0];
+    console.log(result);
+    $("#translator-results").append(result);
+  })
 
 $("#search-form").on("submit", function (event) {
   event.preventDefault();
