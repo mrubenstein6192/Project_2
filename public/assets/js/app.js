@@ -256,6 +256,8 @@ $(document).on("click", "#translate-submit", function() {
     $("#translator-results").append(result);
   })
 
+})
+
 $("#search-form").on("submit", function (event) {
   event.preventDefault();
   var locationName = $("#location-input").val().trim();
