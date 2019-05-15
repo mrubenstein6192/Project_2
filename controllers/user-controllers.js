@@ -12,7 +12,7 @@ const register = (req, res) => {
   user.save(err => {
     if(err){
       console.log(err);
-      res.statues(500).json({
+      res.status(500).json({
         success: false,
         message: "New user registration Error, try again."
       });

@@ -93,3 +93,9 @@ $(document).ready(function () {
     getUserProfile();
   }
 });
+
+$("#location").on("submit", function(){
+  var $btn = $("<button>")
+    .text($("#location"))
+    .attr("data-location", $("#location"))
+})
