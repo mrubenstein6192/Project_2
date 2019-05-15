@@ -148,12 +148,83 @@ function handleError(errorData) {
   });
 }
 
+function saveSearch() {
+
+  const searchData = {
+    location: $(this).attr("data-location")};
+  console.log(searchData);
+
+  const token = localStorage.getItem("accessToken");
+
+  if (!token) {
+    return swal({
+      title: "You must be logged in",
+      icon: "error"
+    });
+  }
+
+  $.ajax({
+      url: "/api/search",
+      method: "POST",
+      data: searchData,
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (err) {
+      console.log(err);
+      handleError(err.responseJSON);
+    });
+
+}
+
+function getSearch() {
+
+  const token = localStorage.getItem("accessToken");
+
+  if (!token) {
+    return swal({
+      title: "You must be logged in",
+      icon: "error"
+    });
+  }
+
+  $.ajax({
+      url: "/api/search",
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    })
+    .then(function (searchData) {
+      console.log(searchData);
+      for(var i = 0; i<searchData.searches.length; i++){
+        console.log("this runs!")
+        console.log(searchData.searches[i].searchTerm)
+        var searchBtn = $("<button>");
+        searchBtn.text(searchData.searches[i].searchTerm)
+          .attr("data-location", searchData.searches[i].searchTerm);
+        $("#past-searches").append(searchBtn);
+      }
+    })
+    .catch(function (err) {
+      console.log(err);
+      handleError(err.responseJSON);
+    });
+}
+
+
 $(document).ready(function () {
   $("#user-info").hide();
   $("#results").hide();
   $("#signup-form").on("submit", signUp);
   $("#login-form").on("submit", login);
   $("#logout").on("click", logout);
+  $("#save-search").on("click", saveSearch);
+  $("#get-searches").on("click", getSearch); 
 
   const token = localStorage.getItem("accessToken");
   if (token) {
@@ -171,7 +242,7 @@ $("#search-form").on("submit", function (event) {
   $("#location-input").empty();
 });
 
-$("#new-search").on("click", function(){
+$("#new-search").on("click", function () {
   $("#results").hide();
   $("#search").show();
 })
