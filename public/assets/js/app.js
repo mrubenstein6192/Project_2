@@ -255,6 +255,7 @@ $(document).on("click", "#translate-submit", function() {
     console.log(result);
     $("#translator-results").append(result);
   })
+})
 
 })
 
