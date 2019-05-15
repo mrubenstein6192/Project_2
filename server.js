@@ -1,9 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(logger("dev"));
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
