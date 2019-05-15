@@ -126,7 +126,6 @@ function getUserProfile() {
       }
     })
     .then(function (userData) {
-      console.log(userData);
       $("#user-tabs, #forms, #right-column-title").hide();
       $("#user-info").show();
       $("#full-name").text(userData.fullName);
@@ -151,6 +150,7 @@ function handleError(errorData) {
 
 $(document).ready(function () {
   $("#user-info").hide();
+  $("#results").hide();
   $("#signup-form").on("submit", signUp);
   $("#login-form").on("submit", login);
   $("#logout").on("click", logout);
@@ -161,10 +161,17 @@ $(document).ready(function () {
   }
 });
 
-$("#location").on("submit", function (event) {
+$("#search-form").on("submit", function (event) {
   event.preventDefault();
-  var $btn = $("<button>")
-    .text($("#location"))
-    .attr("data-location", $("#location"))
-    .apendTo("#results");
+  var locationName = $("#location-input").val().trim();
+  $("#save-search").attr("data-location", locationName);
+  $("#results").show();
+  $("#search").hide();
+  console.log(locationName);
+  $("#location-input").empty();
+});
+
+$("#new-search").on("click", function(){
+  $("#results").hide();
+  $("#search").show();
 })
