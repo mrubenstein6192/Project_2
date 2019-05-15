@@ -14,90 +14,7 @@
 <div class="container my-5">
   <div class="row">
     <div class="col-12 col-md-8">
-      <h2>Find Your Travel Info!</h2>
-      <div id="search ">
-        <form id="search-form">
-          <div class="form-group">
-            <label for="location-input">location</label>
-            <input type="text" id="location" class="form-control" />
-          </div>
-          <button type="submit" class="btn btn-block btn-success">Submit!</button>
-        </form>
-        <br>
-
-<div class = "translator">
-  <div class = "card">
-        <div class = "card-header">Translator</div>
-    <div class = "card-body">
-      <div class = "container">
-        <div class = "row">
-            <div class = "col-md-7">
-                <input type="text" class="form-control" id = "text-input" placeholder="Enter phrase here">
-            </div>
-            <div class = "col-md-3">
-              <select class="custom-select" id = "lang-input">
-              <option selected>To Language</option>
-              <option value="ar">Arabic</option>
-              <option value="zh">Chinese</option>
-              <option value="nl">Dutch</option>
-              <option value="fr">French</option>
-              <option value="de">German</option>
-              <option value="el">Greek</option>
-              <option value="he">Hebrew</option>
-              <option value="hi">Hindi</option>
-              <option value="is">Icelandic</option>
-              <option value="id">Indonesian</option>
-              <option value="ga">Irish</option>
-              <option value="it">Italian</option>
-              <option value="ja">Japanese</option>
-              <option value="ko">Korean</option>
-              <option value="la">Latin</option>
-              <option value="pl">Polish</option>
-              <option value="pt">Portuguese</option>
-              <option value="pa">Punjabi</option>
-              <option value="ru">Russian</option>
-              <option value="es">Spanish</option>
-              <option value="sw">Swahili</option>
-              <option value="vi">Vietnamese</option>
-            </select>
-            </div>
-            <div class = "col-md-2" id = "translate-submit">
-                <button type="button" class="btn btn-primary">Submit</button>
-            </div>
-          </div>
-        </div>
-        <div class = "my-3">
-          <div class = "row">
-            <div class = "col-md-12">
-              <div class = "card">
-                <div class = "card-body" id = "translator-results">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> 
-
-      </div>
-    </div>
-  </div>
-</div>
-        
-      <div id="results"></div>
-    </div>
-    <div class="col-12 col-md-4">
-      <h3 id="right-column-title">Login/Sign Up!</h3>
-      <div class="list-group list-group-horizontal-md" id="user-tabs" role="tablist">
-        <a class="list-group-item list-group-item-action active" data-toggle="list" href="#login" role="tab">Login</a>
-        <a class="list-group-item list-group-item-action" data-toggle="list" href="#signup" role="tab">Sign Up!</a>
-      </div>
-      <div class="tab-content my-4" id="forms">
-        <div class="tab-pane active" id="login" role="tabpanel">
-          <form id="login-form">
-            <div class="form-group">
-              <label for="email-input-login">Email</label>
-              <input type="text" id="email-input-login" class="form-control" />
-            </div>
-      <div class="card">
+      <div class="card" id="search">
         <h2 class="card-header">Find Your Travel Info!</h2>
         <div id="search" class="card-body">
           <form id="search-form">
@@ -114,9 +31,67 @@
         <div class="mt-2 card-body" id="results">
           <button id="save-search">Save your Search!</button>
           <button id="new-search">Make a new search!</button>
+          <div class="translator">
+            <div class="card">
+              <div class="card-header">Translator</div>
+              <div class="card-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <input type="text" class="form-control" id="text-input" placeholder="Enter phrase here">
+                    </div>
+                    <div class="col-md-3">
+                      <select class="custom-select" id="lang-input">
+                        <option selected>To Language</option>
+                        <option value="ar">Arabic</option>
+                        <option value="zh">Chinese</option>
+                        <option value="nl">Dutch</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="el">Greek</option>
+                        <option value="he">Hebrew</option>
+                        <option value="hi">Hindi</option>
+                        <option value="is">Icelandic</option>
+                        <option value="id">Indonesian</option>
+                        <option value="ga">Irish</option>
+                        <option value="it">Italian</option>
+                        <option value="ja">Japanese</option>
+                        <option value="ko">Korean</option>
+                        <option value="la">Latin</option>
+                        <option value="pl">Polish</option>
+                        <option value="pt">Portuguese</option>
+                        <option value="pa">Punjabi</option>
+                        <option value="ru">Russian</option>
+                        <option value="es">Spanish</option>
+                        <option value="sw">Swahili</option>
+                        <option value="vi">Vietnamese</option>
+                      </select>
+                    </div>
+                    <div class="col-md-2" id="translate-submit">
+                      <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="my-3">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card">
+                        <div class="card-body" id="translator-results">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+
+
     <div class="col-12 col-md-4">
       <div class="card">
         <h3 id="right-column-title" class="card-header">Login/Sign Up!</h3>
@@ -124,7 +99,8 @@
           <div class="list-group list-group-horizontal-md" id="user-tabs" role="tablist">
             <a class="list-group-item list-group-item-action active" data-toggle="list" href="#login"
               role="tab">Login</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#signup" role="tab">Sign Up!</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#signup" role="tab">Sign
+              Up!</a>
           </div>
           <div class="tab-content my-4" id="forms">
             <div class="tab-pane active" id="login" role="tabpanel">
@@ -175,15 +151,15 @@
       </div>
     </div>
   </div>
-</div>
 
 
-<body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="./assets/js/app.js"></script>
-</body>
+
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
 
 </html>
