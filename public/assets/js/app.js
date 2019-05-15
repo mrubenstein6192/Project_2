@@ -231,8 +231,6 @@ $(document).ready(function () {
     getUserProfile();
   }
 });
-
-<<<<<<< HEAD
   
 //translator section
 $(document).on("click", "#translate-submit", function() {
@@ -258,7 +256,6 @@ $(document).on("click", "#translate-submit", function() {
     $("#translator-results").append(result);
   })
 
-=======
 $("#search-form").on("submit", function (event) {
   event.preventDefault();
   var locationName = $("#location-input").val().trim();
@@ -272,5 +269,4 @@ $("#search-form").on("submit", function (event) {
 $("#new-search").on("click", function () {
   $("#results").hide();
   $("#search").show();
->>>>>>> 694b01991bcabd4f8fbbdc86a4f1062c88e6f589
 })
