@@ -31,9 +31,9 @@
         <div class="card" id="results">
           <h2 class="card-header">Your Travel Results</h2>
           <div class="mt-2 card-body" id="results">
-            <button id="save-search">Save your Search!</button>
-            <button id="new-search">Make a new search!</button>
-            <div class="translator">
+            <button id="save-search" class="btn btn-info">Save your Search!</button>
+            <button id="new-search" class="btn btn-info">Make a new search!</button>
+            <div class="translator mt-3">
               <div class="card">
                 <div class="card-header">Translator</div>
                 <div class="card-body">
@@ -84,55 +84,54 @@
                       </div>
                     </div>
                   </div>
-
-                  <div class="EventFinder">
-                    <div class="card">
-                      <div class="card-header">Event FInder</div>
-                      <div class="card-body">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-md-4">
-                              <input type="text" class="form-control" id="city-input" placeholder="Enter a City!">
-                            </div>
-                            <div class="col-md-3">
-                              <select class="custom-select" id="countryInput">
-                                <option selected>Country</option>
-                                <option value="US">United States</option>
-                                <option value="AU">Australia</option>
-                                <option value="BS">Bahamas</option>
-                                <option value="BD">Barbados</option>
-                                <option value="CA">Canada</option>
-                                <option value="CN">China</option>
-                                <option value="CR">Costa Rica</option>
-                                <option value="DO">Dominican Rebuplic</option>
-                                <option value="FR">France</option>
-                                <option value="DE">Germany</option>
-                                <option value="GB">Great Britain</option>
-                                <option value="GR">Greece</option>
-                                <option value="IE">Ireland</option>
-                                <option value="IT">Italy</option>
-                                <option value="JM">Jamcia</option>
-                                <option value="MX">Mexico</option>
-                                <option value="NZ">New Zeland</option>
-                                <option value="ES">Spain</option>
-                              </select>
-                            </div>
-                            <div class="col-md-3">
-                              <input type="date" id="startDate" class="form-control">
-                            </div>
-                            <div class="col-md-2" id="event-submit">
-                              <button type="button" class="btn btn-primary">Submit</button>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="my-3">
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="card">
-                                <div class="card-body" id="event-results">
-                                </div>
-                              </div>
-                            </div>
+                </div>
+              </div>
+            </div>
+            <div class="EventFinder mt-5">
+              <div class="card">
+                <div class="card-header">Event FInder</div>
+                <div class="card-body">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <input type="text" class="form-control" id="city-input" placeholder="Enter a City!">
+                      </div>
+                      <div class="col-md-3">
+                        <select class="custom-select" id="countryInput">
+                          <option selected>Country</option>
+                          <option value="US">United States</option>
+                          <option value="AU">Australia</option>
+                          <option value="BS">Bahamas</option>
+                          <option value="BD">Barbados</option>
+                          <option value="CA">Canada</option>
+                          <option value="CN">China</option>
+                          <option value="CR">Costa Rica</option>
+                          <option value="DO">Dominican Rebuplic</option>
+                          <option value="FR">France</option>
+                          <option value="DE">Germany</option>
+                          <option value="GB">Great Britain</option>
+                          <option value="GR">Greece</option>
+                          <option value="IE">Ireland</option>
+                          <option value="IT">Italy</option>
+                          <option value="JM">Jamcia</option>
+                          <option value="MX">Mexico</option>
+                          <option value="NZ">New Zeland</option>
+                          <option value="ES">Spain</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <input type="date" id="startDate" class="form-control">
+                      </div>
+                      <div class="col-md-2" id="event-submit">
+                        <button type="button" class="btn btn-primary">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="my-3">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="card">
+                          <div class="card-body" id="event-results">
                           </div>
                         </div>
                       </div>
