@@ -11,155 +11,207 @@
   <title>Travel App</title>
 </head>
 
-<div class="container my-5">
-  <div class="row">
-    <div class="col-12 col-md-8">
-      <div class="card" id="search">
-        <h2 class="card-header">Find Your Travel Info!</h2>
-        <div id="search" class="card-body">
-          <form id="search-form">
-            <div class="form-group">
-              <h4><label for="location-input">location</label></h4>
-              <input type="text" id="location-input" class="form-control" />
-            </div>
-            <button type="submit" class="btn btn-block btn-success">Search</button>
-          </form>
+<body>
+
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-12 col-md-8">
+        <div class="card" id="search">
+          <h2 class="card-header">Find Your Travel Info!</h2>
+          <div id="search" class="card-body">
+            <form id="search-form">
+              <div class="form-group">
+                <h4><label for="location-input">location</label></h4>
+                <input type="text" id="location-input" class="form-control" />
+              </div>
+              <button type="submit" class="btn btn-block btn-success">Search</button>
+            </form>
+          </div>
         </div>
-      </div>
-      <div class="card" id="results">
-        <h2 class="card-header">Your Travel Results</h2>
-        <div class="mt-2 card-body" id="results">
-          <button id="save-search">Save your Search!</button>
-          <button id="new-search">Make a new search!</button>
-          <div class="translator">
-            <div class="card">
-              <div class="card-header">Translator</div>
-              <div class="card-body">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-7">
-                      <input type="text" class="form-control" id="text-input" placeholder="Enter phrase here">
-                    </div>
-                    <div class="col-md-3">
-                      <select class="custom-select" id="lang-input">
-                        <option selected>To Language</option>
-                        <option value="ar">Arabic</option>
-                        <option value="zh">Chinese</option>
-                        <option value="nl">Dutch</option>
-                        <option value="fr">French</option>
-                        <option value="de">German</option>
-                        <option value="el">Greek</option>
-                        <option value="he">Hebrew</option>
-                        <option value="hi">Hindi</option>
-                        <option value="is">Icelandic</option>
-                        <option value="id">Indonesian</option>
-                        <option value="ga">Irish</option>
-                        <option value="it">Italian</option>
-                        <option value="ja">Japanese</option>
-                        <option value="ko">Korean</option>
-                        <option value="la">Latin</option>
-                        <option value="pl">Polish</option>
-                        <option value="pt">Portuguese</option>
-                        <option value="pa">Punjabi</option>
-                        <option value="ru">Russian</option>
-                        <option value="es">Spanish</option>
-                        <option value="sw">Swahili</option>
-                        <option value="vi">Vietnamese</option>
-                      </select>
-                    </div>
-                    <div class="col-md-2" id="translate-submit">
-                      <button type="button" class="btn btn-primary">Submit</button>
+        <div class="card" id="results">
+          <h2 class="card-header">Your Travel Results</h2>
+          <div class="mt-2 card-body" id="results">
+            <button id="save-search" class="btn btn-info">Save your Search!</button>
+            <button id="new-search" class="btn btn-info">Make a new search!</button>
+            <div class="translator mt-3">
+              <div class="card">
+                <div class="card-header">Translator</div>
+                <div class="card-body">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-7">
+                        <input type="text" class="form-control" id="text-input" placeholder="Enter phrase here">
+                      </div>
+                      <div class="col-md-3">
+                        <select class="custom-select" id="lang-input">
+                          <option selected>To Language</option>
+                          <option value="ar">Arabic</option>
+                          <option value="zh">Chinese</option>
+                          <option value="nl">Dutch</option>
+                          <option value="fr">French</option>
+                          <option value="de">German</option>
+                          <option value="el">Greek</option>
+                          <option value="he">Hebrew</option>
+                          <option value="hi">Hindi</option>
+                          <option value="is">Icelandic</option>
+                          <option value="id">Indonesian</option>
+                          <option value="ga">Irish</option>
+                          <option value="it">Italian</option>
+                          <option value="ja">Japanese</option>
+                          <option value="ko">Korean</option>
+                          <option value="la">Latin</option>
+                          <option value="pl">Polish</option>
+                          <option value="pt">Portuguese</option>
+                          <option value="pa">Punjabi</option>
+                          <option value="ru">Russian</option>
+                          <option value="es">Spanish</option>
+                          <option value="sw">Swahili</option>
+                          <option value="vi">Vietnamese</option>
+                        </select>
+                      </div>
+                      <div class="col-md-2" id="translate-submit">
+                        <button type="button" class="btn btn-primary">Submit</button>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="my-3">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="card">
-                        <div class="card-body" id="translator-results">
+                  <div class="my-3">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="card">
+                          <div class="card-body" id="translator-results">
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
+              </div>
+            </div>
+            <div class="EventFinder mt-5">
+              <div class="card">
+                <div class="card-header">Event FInder</div>
+                <div class="card-body">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <input type="text" class="form-control" id="city-input" placeholder="Enter a City!">
+                      </div>
+                      <div class="col-md-3">
+                        <select class="custom-select" id="countryInput">
+                          <option selected>Country</option>
+                          <option value="US">United States</option>
+                          <option value="AU">Australia</option>
+                          <option value="BS">Bahamas</option>
+                          <option value="BD">Barbados</option>
+                          <option value="CA">Canada</option>
+                          <option value="CN">China</option>
+                          <option value="CR">Costa Rica</option>
+                          <option value="DO">Dominican Rebuplic</option>
+                          <option value="FR">France</option>
+                          <option value="DE">Germany</option>
+                          <option value="GB">Great Britain</option>
+                          <option value="GR">Greece</option>
+                          <option value="IE">Ireland</option>
+                          <option value="IT">Italy</option>
+                          <option value="JM">Jamcia</option>
+                          <option value="MX">Mexico</option>
+                          <option value="NZ">New Zeland</option>
+                          <option value="ES">Spain</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <input type="date" id="startDate" class="form-control">
+                      </div>
+                      <div class="col-md-2" id="event-submit">
+                        <button type="button" class="btn btn-primary">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="my-3">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="card">
+                          <div class="card-body" id="event-results">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-
-
-    <div class="col-12 col-md-4">
-      <div class="card">
-        <h3 id="right-column-title" class="card-header">Login/Sign Up!</h3>
-        <div class="card-body">
-          <div class="list-group list-group-horizontal-md" id="user-tabs" role="tablist">
-            <a class="list-group-item list-group-item-action active" data-toggle="list" href="#login"
-              role="tab">Login</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#signup" role="tab">Sign
-              Up!</a>
-          </div>
-          <div class="tab-content my-4" id="forms">
-            <div class="tab-pane active" id="login" role="tabpanel">
-              <form id="login-form">
-                <div class="form-group">
-                  <label for="email-input-login">Email</label>
-                  <input type="text" id="email-input-login" class="form-control" />
-                </div>
-                <div class="form-group">
-                  <label for="password-input-login">password</label>
-                  <input type="password" id="password-input-login" class="form-control" />
-                </div>
-                <button type="submit" class="btn btn-block btn-success">Login!</button>
-              </form>
+      <div class="col-12 col-md-4">
+        <div class="card">
+          <h3 id="right-column-title" class="card-header">Login/Sign Up!</h3>
+          <div class="card-body">
+            <div class="list-group list-group-horizontal-md" id="user-tabs" role="tablist">
+              <a class="list-group-item list-group-item-action active" data-toggle="list" href="#login"
+                role="tab">Login</a>
+              <a class="list-group-item list-group-item-action" data-toggle="list" href="#signup" role="tab">Sign
+                Up!</a>
             </div>
-            <div class="tab-pane" id="signup" role="tabpanel">
-              <form id="signup-form">
-                <div class="form-group">
-                  <label for="first-name-input">First Name</label>
-                  <input type="text" id="first-name-input" class="form-control" />
-                </div>
-                <div class="form-group">
-                  <label for="last-name-input">Last Name</label>
-                  <input type="text" id="last-name-input" class="form-control" />
-                </div>
-                <div class="form-group">
-                  <label for="email-input">Email</label>
-                  <input type="text" id="email-input" class="form-control" />
-                </div>
-                <div class="form-group">
-                  <label for="password-input">password</label>
-                  <input type="password" id="password-input" class="form-control" />
-                </div>
-                <button type="submit" class="btn btn-block btn-success">Login!</button>
-              </form>
+            <div class="tab-content my-4" id="forms">
+              <div class="tab-pane active" id="login" role="tabpanel">
+                <form id="login-form">
+                  <div class="form-group">
+                    <label for="email-input-login">Email</label>
+                    <input type="text" id="email-input-login" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="password-input-login">password</label>
+                    <input type="password" id="password-input-login" class="form-control" />
+                  </div>
+                  <button type="submit" class="btn btn-block btn-success">Login!</button>
+                </form>
+              </div>
+              <div class="tab-pane" id="signup" role="tabpanel">
+                <form id="signup-form">
+                  <div class="form-group">
+                    <label for="first-name-input">First Name</label>
+                    <input type="text" id="first-name-input" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="last-name-input">Last Name</label>
+                    <input type="text" id="last-name-input" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email-input">Email</label>
+                    <input type="text" id="email-input" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="password-input">password</label>
+                    <input type="password" id="password-input" class="form-control" />
+                  </div>
+                  <button type="submit" class="btn btn-block btn-success">Sign Up!</button>
+                </form>
+              </div>
             </div>
-          </div>
 
+          </div>
+        </div>
+        <div id="user-info" class="card">
+          <h3 id="full-name" class="card-header font-weight-bold"></h3>
+          <div class="card-body">
+            <button id="get-searches" class="btn btn-block btn-info">Show Past Searches!</button>
+            <button id="logout" class="btn btn-block btn-warning"> logout</button>
+            <div id="past-searches"></div>
+          </div>
         </div>
       </div>
-      <div id="user-info" class="card">
-        <h3 id="full-name" class="card-header font-weight-bold"></h3>
-        <div class="card-body">
-          <button id="get-searches" class="btn btn-block btn-info">Show Past Searches!</button>
-          <button id="logout" class="btn btn-block btn-warning"> logout</button>
-          <div id="past-searches"></div>
-        </div>
-      </div>
     </div>
+
   </div>
+  
 
-
-
-  <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="./assets/js/app.js"></script>
-  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
 
 </html>
