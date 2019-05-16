@@ -151,7 +151,8 @@ function handleError(errorData) {
 function saveSearch() {
 
   const searchData = {
-    location: $(this).attr("data-location")};
+    location: $(this).attr("data-location")
+  };
   console.log(searchData);
 
   const token = localStorage.getItem("accessToken");
@@ -201,7 +202,7 @@ function getSearch() {
     })
     .then(function (searchData) {
       console.log(searchData);
-      for(var i = 0; i<searchData.searches.length; i++){
+      for (var i = 0; i < searchData.searches.length; i++) {
         console.log("this runs!")
         console.log(searchData.searches[i].searchTerm)
         var searchBtn = $("<button>");
@@ -224,32 +225,32 @@ $(document).ready(function () {
   $("#login-form").on("submit", login);
   $("#logout").on("click", logout);
   $("#save-search").on("click", saveSearch);
-  $("#get-searches").on("click", getSearch); 
+  $("#get-searches").on("click", getSearch);
 
   const token = localStorage.getItem("accessToken");
   if (token) {
     getUserProfile();
   }
 });
-  
+
 //translator section
-$(document).on("click", "#translate-submit", function() {
+$(document).on("click", "#translate-submit", function () {
   $("#translator-results").empty();
-  
+
 
   var text = $("#text-input").val().trim().toLowerCase().replace(/ /g, "%20");
   var lang = $("#lang-input").val();
 
   var translateURL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20190515T140015Z.469d4504237e43c4.5ad62c8589944f5eb4db838232d59b19a991dc73&text=" + text + "&lang=" + lang + "&options=1";
-  
+
   console.log(text);
   console.log(lang);
-  
+
   $.ajax({
     url: translateURL,
     method: "GET"
-  }).then(function(response) {
-    
+  }).then(function (response) {
+
     console.log(response.text[0]);
     var result = response.text[0];
     console.log(result);
@@ -270,4 +271,33 @@ $("#search-form").on("submit", function (event) {
 $("#new-search").on("click", function () {
   $("#results").hide();
   $("#search").show();
+})
+
+$(document).on("click", "#event-submit", function () {
+  $("#event-results").empty();
+
+  var city = $("#city-input").val().trim();
+  var country = $("#countryInput").val();
+  var startDate = $("#startDate").val();
+
+  var eventUrl = "https://app.ticketmaster.com/discovery/v2/events?apikey=ziTAgm47Mj2vDUNxbkwubikfwa13WcR8&startDateTime=" + startDate + "T06:00:00Z&sort=date,asc&city=" + city + "&countryCode=" + country;
+
+  $.ajax({
+    url: eventUrl,
+    method: "GET"
+  }).then(function (response) {
+    var results = response._embedded.events;
+    console.log(results)
+    for (var i = 0; i < results.length; i++) {
+      var $div = $("<div>");
+      var $h4 = $("<h4>").text(results[i].name);
+      var $p = $("<p>").text(results[i].dates.start.localDate + " ");
+      var $a = $("<a>").text("Ticket Link!")
+        .attr("href", results[i].url)
+        .attr("target", "_blank");
+      $p.append($a)
+      $div.append($h4, $p);
+      $("#event-results").append($div);
+    }
+  });
 })
