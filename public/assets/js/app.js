@@ -183,6 +183,7 @@ function saveSearch() {
 }
 
 function getSearch() {
+  
 
   const token = localStorage.getItem("accessToken");
 
@@ -207,7 +208,8 @@ function getSearch() {
         console.log(searchData.searches[i].searchTerm)
         var searchBtn = $("<button>");
         searchBtn.text(searchData.searches[i].searchTerm)
-          .attr("data-location", searchData.searches[i].searchTerm);
+          .attr("data-location", searchData.searches[i].searchTerm)
+          .attr("class", "pastSearch" );
         $("#past-searches").append(searchBtn);
       }
     })
@@ -266,6 +268,7 @@ $("#search-form").on("submit", function (event) {
   $("#search").hide();
   console.log(locationName);
   $("#location-input").empty();
+  $("#city-input").val(locationName);
 });
 
 $("#new-search").on("click", function () {
@@ -300,4 +303,12 @@ $(document).on("click", "#event-submit", function () {
       $("#event-results").append($div);
     }
   });
+})
+
+$(document).on("click", ".pastSearch", function(){
+  event.preventDefault();
+  var pastLocation = $(this).attr("data-location")
+  $("#search").hide();  
+  $("#results").show();
+  $("#city-input").val(pastLocation);
 })
