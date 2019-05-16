@@ -257,7 +257,7 @@ $(document).on("click", "#translate-submit", function() {
   })
 })
 
-})
+
 
 $("#search-form").on("submit", function (event) {
   event.preventDefault();
@@ -267,9 +267,51 @@ $("#search-form").on("submit", function (event) {
   $("#search").hide();
   console.log(locationName);
   $("#location-input").empty();
+
+
 });
 
 $("#new-search").on("click", function () {
   $("#results").hide();
   $("#search").show();
 })
+
+$(document).on("click", "#flight-submit", function() {
+
+  
+
+  var origin = $("#origin").val().trim().toLowerCase().replace(/ /g, "%20");
+  var destination = $("#destination").val().trim().toLowerCase().replace(/ /g, "%20");
+  var departDate = $("#depart-date").val();
+  var cabin = $("#cabin").val();
+  var adults = $("#adults").val();
+  var bags = $("#bags").val();
+  var flightURL = "https://apidojo-kayak-v1.p.rapidapi.com/flights/create-session?origin1=" + origin + "&destination1=" + destination + "&departdate1=" + departDate + "&cabin=" + cabin +"&currency=USD&adults=" + adults + "&bags=" +bags;
+
+  console.log(flightURL);
+  
+  $.ajax({
+    url: flightURL,
+    headers: {
+        'X-RapidAPI-Host':'apidojo-kayak-v1.p.rapidapi.com',
+        'X-RapidAPI-Key':'84f14b8868msh3b8ceee7b583d2ep1998b9jsn3ec2ab651da9',
+        'Content-Type':'application/json'
+    },
+    method: 'GET',
+    dataType: 'json',
+    data: String,
+    success: function(data){
+      console.log('success: '+data);
+    }
+  })
+    .then(function(response){
+      console.log(response);
+      console.log(response.departDate);
+      var originCap = origin.toUpperCase().replace(/%20/g, " ");
+      var destinationCap = destination.toUpperCase().replace(/%20/g, " ");
+      
+      $("#airports").prepend("Cities: " + originCap + " to " + destinationCap + "\n\n");
+      $("#departDate").prepend("Date: " + response.departDate + "\n\n");
+      $("#price").prepend("Cheapest Price: $" + response.cheapestPrice + "\n\n");
+    });
+  });
