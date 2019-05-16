@@ -86,32 +86,11 @@ function login(event) {
     });
 }
 
-function getUserProfile() {
-  const token = localStorage.getItem("accessToken");
-
-  $.ajax({
-      url: "/api/user",
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${token}`
-      }
-    })
-    .then(function (userData) {
-      console.log(userData);
-      $("#user-tabs, #forms, #right-column-title").hide();
-      $("#user-info").show();
-      $("#full-name").text(userData.fullName);
-    })
-    .catch(err => {
-      console.log(err);
-      handleError(err.responseJSON);
-    });
-}
 
 function logout() {
   localStorage.removeItem('accessToken');
   $("#user-info").hide();
-  $("#user-tabs, #forms, #rigth-column-title").show();
+  $("#user-tabs, #forms, #logup, #right-column-title").show();
   $("#login").tab("show");
 }
 
@@ -126,7 +105,7 @@ function getUserProfile() {
       }
     })
     .then(function (userData) {
-      $("#user-tabs, #forms, #right-column-title").hide();
+      $("#user-tabs, #forms, #logup, #right-column-title").hide();
       $("#user-info").show();
       $("#full-name").text(userData.fullName);
     })
@@ -183,7 +162,7 @@ function saveSearch() {
 }
 
 function getSearch() {
-  
+
 
   const token = localStorage.getItem("accessToken");
 
@@ -209,7 +188,7 @@ function getSearch() {
         var searchBtn = $("<button>");
         searchBtn.text(searchData.searches[i].searchTerm)
           .attr("data-location", searchData.searches[i].searchTerm)
-          .attr("class", "pastSearch" );
+          .attr("class", "pastSearch");
         $("#past-searches").append(searchBtn);
       }
     })
@@ -271,7 +250,7 @@ $("#search-form").on("submit", function (event) {
   console.log(locationName);
   $("#location-input").empty();
   $("#city-input").val(locationName);
-
+  $("#destination").val(locationName)
 
 });
 
@@ -281,9 +260,9 @@ $("#new-search").on("click", function () {
 })
 
 
-$(document).on("click", "#flight-submit", function() {
+$(document).on("click", "#flight-submit", function () {
 
-  
+
 
   var origin = $("#origin").val().trim().toLowerCase().replace(/ /g, "%20");
   var destination = $("#destination").val().trim().toLowerCase().replace(/ /g, "%20");
@@ -291,35 +270,35 @@ $(document).on("click", "#flight-submit", function() {
   var cabin = $("#cabin").val();
   var adults = $("#adults").val();
   var bags = $("#bags").val();
-  var flightURL = "https://apidojo-kayak-v1.p.rapidapi.com/flights/create-session?origin1=" + origin + "&destination1=" + destination + "&departdate1=" + departDate + "&cabin=" + cabin +"&currency=USD&adults=" + adults + "&bags=" +bags;
+  var flightURL = "https://apidojo-kayak-v1.p.rapidapi.com/flights/create-session?origin1=" + origin + "&destination1=" + destination + "&departdate1=" + departDate + "&cabin=" + cabin + "&currency=USD&adults=" + adults + "&bags=" + bags;
 
   console.log(flightURL);
-  
+
   $.ajax({
-    url: flightURL,
-    headers: {
-        'X-RapidAPI-Host':'apidojo-kayak-v1.p.rapidapi.com',
-        'X-RapidAPI-Key':'84f14b8868msh3b8ceee7b583d2ep1998b9jsn3ec2ab651da9',
-        'Content-Type':'application/json'
-    },
-    method: 'GET',
-    dataType: 'json',
-    data: String,
-    success: function(data){
-      console.log('success: '+data);
-    }
-  })
-    .then(function(response){
+      url: flightURL,
+      headers: {
+        'X-RapidAPI-Host': 'apidojo-kayak-v1.p.rapidapi.com',
+        'X-RapidAPI-Key': '84f14b8868msh3b8ceee7b583d2ep1998b9jsn3ec2ab651da9',
+        'Content-Type': 'application/json'
+      },
+      method: 'GET',
+      dataType: 'json',
+      data: String,
+      success: function (data) {
+        console.log('success: ' + data);
+      }
+    })
+    .then(function (response) {
       console.log(response);
       console.log(response.departDate);
       var originCap = origin.toUpperCase().replace(/%20/g, " ");
       var destinationCap = destination.toUpperCase().replace(/%20/g, " ");
-      
+
       $("#airports").prepend("Cities: " + originCap + " to " + destinationCap + "\n\n");
       $("#departDate").prepend("Date: " + response.departDate + "\n\n");
       $("#price").prepend("Cheapest Price: $" + response.cheapestPrice + "\n\n");
     });
-  });
+});
 
 $(document).on("click", "#event-submit", function () {
   $("#event-results").empty();
@@ -350,10 +329,11 @@ $(document).on("click", "#event-submit", function () {
   });
 })
 
-$(document).on("click", ".pastSearch", function(){
+$(document).on("click", ".pastSearch", function () {
   event.preventDefault();
   var pastLocation = $(this).attr("data-location")
-  $("#search").hide();  
+  $("#search").hide();
   $("#results").show();
   $("#city-input").val(pastLocation);
+  $("#destination").val(pastLocation);
 })

@@ -29,126 +29,85 @@
           </div>
         </div>
 
-      </div>
-
-      <!-- flight stuff -->
-      <div class = "flightsForm">
-          <div class = "card my-3">
-            <div class = "card-header">Search a Flight!</div>
-            <div class = "container">
-              <div class = "card-body">
-                <!-- row for origin and destination -->
-                <div class = "row">
-                  <div class = "col-md-6">
-                      <h4>Leaving From: </h4><input type="text" class="form-control" id="origin" placeholder="Origin City">
-                  </div>
-                  <div class = "col-md-6">
-                      <h4>Arriving To: </h4><input type="text" class="form-control" id = "destination" placeholder="Destination City">
-                  </div>
-                </div>
-                <!-- row for depart date, cabin, currency, adults, bags -->
-                <div class = "row my-3">
-                  <!-- depart date -->
-                  <div class="col-md-3">
-                      <h4>Date: </h4><input id="depart-date" type="date">
-                  </div>
-                  <!-- cabin dropdown -->
-                  <div class="col-md-3 mx-4">
-                    <h4>Cabin: </h4>
-                    <select class="custom-select" id="cabin">
-                        <option selected>Select</option>
-                        <option value="e">Economy</option>
-                        <option value="b">Business</option>
-                        <option value="p">Premium Economy</option>
-                        <option value="f">First Class</option>
-                      </select>
-                  </div>
-                  <!-- adults -->
-                  <div class="col-md-4 mx-2">
-                      <div class = "row">
-                        <div class = "col-12">
-                          <h4>Passengers: </h4><input id="adults" type="number" placeholder="1">
-                        </div>
-                      </div>
-                      <div class = "row">
-                        <div class = "col-12">
-                          <h4>Bags: </h4><input id="bags" type="number" placeholder="1">
-                        </div>
-                      </div>
-                  </div>
-                </div>
-                <!-- row for submit button -->
-                <div class = "row" id = "flight-submit">
-                    <button type="button" class="btn btn-primary mx-3">Submit</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      <!-- empty div to fill with flight info -->
-      <div class = "flight-results my-4">
-        <div class = "card">
-          <div class = "card-header">Flight Information</div>
-          <div class = "container">
-            <div class = "card-body">
-             <div class = "row" id = "flight-results2">
-              <div class="col-md-4 mx-auto text-center" id = "airports"></div>
-              <div class="col-md-4 mx-auto text-center" id = "departDate"></div>
-              <div class="col-md-4 mx-auto text-center" id = "price"></div>
-             </div>
-             
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- results field for weather, events, and translator -->
-      <div class="card" id="results">
-        <h2 class="card-header">Your Travel Results</h2>
-        <div class="mt-2 card-body" id="results">
-          <button id="save-search">Save your Search!</button>
-          <button id="new-search">Make a new search!</button>
-          <div class="translator">
-            <div class="card">
-              <div class="card-header">Translator</div>
-              <div class="card-body">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-7">
-                      <input type="text" class="form-control" id="text-input" placeholder="Enter phrase here">
-                    </div>
-                    <div class="col-md-3">
-                      <select class="custom-select" id="lang-input">
-                        <option selected>To Language</option>
-                        <option value="ar">Arabic</option>
-                        <option value="zh">Chinese</option>
-                        <option value="nl">Dutch</option>
-                        <option value="fr">French</option>
-                        <option value="de">German</option>
-                        <option value="el">Greek</option>
-                        <option value="he">Hebrew</option>
-                        <option value="hi">Hindi</option>
-                        <option value="is">Icelandic</option>
-                        <option value="id">Indonesian</option>
-                        <option value="ga">Irish</option>
-                        <option value="it">Italian</option>
-                        <option value="ja">Japanese</option>
-                        <option value="ko">Korean</option>
-                        <option value="la">Latin</option>
-                        <option value="pl">Polish</option>
-                        <option value="pt">Portuguese</option>
-                        <option value="pa">Punjabi</option>
-                        <option value="ru">Russian</option>
-                        <option value="es">Spanish</option>
-                        <option value="sw">Swahili</option>
-                        <option value="vi">Vietnamese</option>
-                      </select>
-   <div class="card" id="results">
+        <!-- results field for weather, events, and translator -->
+        <div class="card" id="results">
           <h2 class="card-header">Your Travel Results</h2>
           <div class="mt-2 card-body" id="results">
             <button id="save-search" class="btn btn-info">Save your Search!</button>
             <button id="new-search" class="btn btn-info">Make a new search!</button>
+            <!-- flight stuff -->
+            <div class="flightsForm">
+              <div class="card my-3">
+                <div class="card-header">Search a Flight!</div>
+                <div class="container">
+                  <div class="card-body">
+                    <!-- row for origin and destination -->
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h4>Leaving From: </h4><input type="text" class="form-control" id="origin"
+                          placeholder="Origin City">
+                      </div>
+                      <div class="col-md-6">
+                        <h4>Arriving To: </h4><input type="text" class="form-control" id="destination"
+                          placeholder="Destination City">
+                      </div>
+                    </div>
+                    <!-- row for depart date, cabin, currency, adults, bags -->
+                    <div class="row my-3">
+                      <!-- depart date -->
+                      <div class="col-md-3">
+                        <h4>Date: </h4><input id="depart-date" type="date">
+                      </div>
+                      <!-- cabin dropdown -->
+                      <div class="col-md-3 mx-4">
+                        <h4>Cabin: </h4>
+                        <select class="custom-select" id="cabin">
+                          <option selected>Select</option>
+                          <option value="e">Economy</option>
+                          <option value="b">Business</option>
+                          <option value="p">Premium Economy</option>
+                          <option value="f">First Class</option>
+                        </select>
+                      </div>
+                      <!-- adults -->
+                      <div class="col-md-4 mx-2">
+                        <div class="row">
+                          <div class="col-12">
+                            <h4>Passengers: </h4><input id="adults" type="number" placeholder="1">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">
+                            <h4>Bags: </h4><input id="bags" type="number" placeholder="1">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- row for submit button -->
+                    <div class="row" id="flight-submit">
+                      <button type="button" class="btn btn-primary mx-3">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- empty div to fill with flight info -->
+            <div class="flight-results my-4">
+              <div class="card">
+                <div class="card-header">Flight Information</div>
+                <div class="container">
+                  <div class="card-body">
+                    <div class="row" id="flight-results2">
+                      <div class="col-md-4 mx-auto text-center" id="airports"></div>
+                      <div class="col-md-4 mx-auto text-center" id="departDate"></div>
+                      <div class="col-md-4 mx-auto text-center" id="price"></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="translator mt-3">
               <div class="card">
                 <div class="card-header">Translator</div>
@@ -262,7 +221,7 @@
       </div>
 
       <div class="col-12 col-md-4">
-        <div class="border p-2 rounded">
+        <div class="border p-2 rounded" id="logup">
           <h3 id="right-column-title" class="text-center">Login/Sign Up!</h3>
           <div>
             <div class="list-group list-group-horizontal-md mt-3" id="user-tabs" role="tablist">
@@ -310,8 +269,8 @@
 
           </div>
         </div>
-        <div id="user-info" class="card">
-          <h3 id="full-name" class="card-header font-weight-bold"></h3>
+        <div id="user-info" class="border p-2 rounded">
+          <h3 id="full-name" class="font-weight-bold"></h3>
           <div class="card-body">
             <button id="get-searches" class="btn btn-block btn-info">Show Past Searches!</button>
             <button id="logout" class="btn btn-block btn-warning"> logout</button>
@@ -322,11 +281,12 @@
     </div>
 
   </div>
-  
 
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js">
+  </script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="./assets/js/app.js"></script>
 </body>
