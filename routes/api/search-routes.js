@@ -1,6 +1,9 @@
 const router = require('express').Router();
 
-const{ getSearch, addSearch } = require("../../controllers/search-controllers");
+const {
+  getSearch,
+  addSearch
+} = require("../../controllers/search-controllers");
 
 const withAuth = require("../../middleware/authentication");
 
@@ -12,4 +15,3 @@ router
   .post(addSearch);
 
 module.exports = router;
-

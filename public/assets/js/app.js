@@ -303,8 +303,7 @@ $(document).on("click", "#flight-submit", function () {
       var finalPrice;
       if (response.cheapestPrice < 0) {
         finalPrice = "Currency Exchange Error."
-      }
-      else {
+      } else {
         finalPrice = response.cheapestPrice;
       };
 
