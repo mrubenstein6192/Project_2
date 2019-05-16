@@ -73,12 +73,12 @@
                       <div class="col-md-4 mx-2">
                         <div class="row">
                           <div class="col-12">
-                            <h4>Passengers: </h4><input id="adults" type="number" placeholder="1">
+                            <h4>Passengers: </h4><input id="adults" type="number" placeholder="">
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-12">
-                            <h4>Bags: </h4><input id="bags" type="number" placeholder="1">
+                            <h4>Bags: </h4><input id="bags" type="number" placeholder="">
                           </div>
                         </div>
                       </div>
@@ -98,11 +98,15 @@
                 <div class="card-header">Flight Information</div>
                 <div class="container">
                   <div class="card-body">
-                    <div class="row" id="flight-results2">
-                      <div class="col-md-4 mx-auto text-center" id="airports"></div>
-                      <div class="col-md-4 mx-auto text-center" id="departDate"></div>
-                      <div class="col-md-4 mx-auto text-center" id="price"></div>
-                    </div>
+                    <table class="table" id="flight-table">
+                      <thead>
+                        <th scope="col">Cities</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Price</th>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
 
                   </div>
                 </div>

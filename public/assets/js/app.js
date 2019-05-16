@@ -164,7 +164,7 @@ function saveSearch() {
 function getSearch() {
 
   $("#past-searches").empty();
-  
+
   const token = localStorage.getItem("accessToken");
 
   if (!token) {
@@ -295,9 +295,14 @@ $(document).on("click", "#flight-submit", function () {
       var originCap = origin.toUpperCase().replace(/%20/g, " ");
       var destinationCap = destination.toUpperCase().replace(/%20/g, " ");
 
-      $("#airports").prepend("Cities: " + originCap + " to " + destinationCap + "\n\n");
-      $("#departDate").prepend("Date: " + response.departDate + "\n\n");
-      $("#price").prepend("Cheapest Price: $" + response.cheapestPrice + "\n\n");
+      var newRow = $("<tr>").append(
+        $("<td>").text(originCap + " to " + destinationCap),
+        $("<td>").text(response.departDate),
+        $("<td>").text("$ " + response.cheapestPrice),
+      );
+
+      $("#flight-table > tbody").append(newRow);
+
     });
 });
 
