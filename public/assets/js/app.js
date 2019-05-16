@@ -163,7 +163,8 @@ function saveSearch() {
 
 function getSearch() {
 
-
+  $("#past-searches").empty();
+  
   const token = localStorage.getItem("accessToken");
 
   if (!token) {
