@@ -1,3 +1,4 @@
+// allows for signUp
 function signUp(event) {
   event.preventDefault();
 
@@ -48,6 +49,7 @@ function signUp(event) {
     });
 }
 
+// allows for login submissions
 function login(event) {
   event.preventDefault();
 
@@ -86,7 +88,7 @@ function login(event) {
     });
 }
 
-
+// allows for logouts
 function logout() {
   localStorage.removeItem('accessToken');
   $("#user-info").hide();
@@ -94,6 +96,7 @@ function logout() {
   $("#login").tab("show");
 }
 
+//pulls db profile info
 function getUserProfile() {
   const token = localStorage.getItem("accessToken");
 
@@ -115,6 +118,7 @@ function getUserProfile() {
     });
 }
 
+// handles any errors during log in, sign up, and get user
 function handleError(errorData) {
   swal({
     title: "Please login",
@@ -127,6 +131,7 @@ function handleError(errorData) {
   });
 }
 
+// sends search info to database for storage
 function saveSearch() {
 
   const searchData = {
@@ -161,6 +166,7 @@ function saveSearch() {
 
 }
 
+// pulls all saved searches tied to an account
 function getSearch() {
 
   $("#past-searches").empty();
@@ -189,7 +195,7 @@ function getSearch() {
         var searchBtn = $("<button>");
         searchBtn.text(searchData.searches[i].searchTerm)
           .attr("data-location", searchData.searches[i].searchTerm)
-          .attr("class", "pastSearch");
+          .attr("class", "pastSearch btn btn-secondary m-2");
         $("#past-searches").append(searchBtn);
       }
     })
@@ -199,7 +205,7 @@ function getSearch() {
     });
 }
 
-
+// on page load listeners and hides results fields
 $(document).ready(function () {
   $("#user-info").hide();
   $("#results").hide();
@@ -241,7 +247,7 @@ $(document).on("click", "#translate-submit", function () {
 })
 
 
-
+// listen for search form 
 $("#search-form").on("submit", function (event) {
   event.preventDefault();
   var locationName = $("#location-input").val().trim();
@@ -260,10 +266,8 @@ $("#new-search").on("click", function () {
   $("#search").show();
 })
 
-
+// flight form listener
 $(document).on("click", "#flight-submit", function () {
-
-
 
   var origin = $("#origin").val().trim().toLowerCase().replace(/ /g, "%20");
   var destination = $("#destination").val().trim().toLowerCase().replace(/ /g, "%20");
@@ -306,6 +310,7 @@ $(document).on("click", "#flight-submit", function () {
     });
 });
 
+// event form listener
 $(document).on("click", "#event-submit", function () {
   $("#event-results").empty();
 
@@ -335,6 +340,7 @@ $(document).on("click", "#event-submit", function () {
   });
 })
 
+// past search listener
 $(document).on("click", ".pastSearch", function () {
   event.preventDefault();
   var pastLocation = $(this).attr("data-location")
