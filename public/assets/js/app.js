@@ -290,7 +290,7 @@ $(document).on("click", "#flight-submit", function () {
     })
     .then(function (response) {
       console.log(response);
-      
+      console.log(response.tripset[0].shareURL);
       var originCap = origin.toUpperCase().replace(/%20/g, " ");
       var destinationCap = destination.toUpperCase().replace(/%20/g, " ");
 
