@@ -295,10 +295,19 @@ $(document).on("click", "#flight-submit", function () {
       var originCap = origin.toUpperCase().replace(/%20/g, " ");
       var destinationCap = destination.toUpperCase().replace(/%20/g, " ");
 
+      //if-else statement for cheapest price
+      var finalPrice;
+      if (response.cheapestPrice < 0) {
+        finalPrice = "Currency Exchange Error."
+      }
+      else {
+        finalPrice = response.cheapestPrice;
+      };
+
       var newRow = $("<tr>").append(
         $("<td>").text(originCap + " to " + destinationCap),
         $("<td>").text(response.departDate),
-        $("<td>").text("$ " + response.cheapestPrice),
+        $("<td>").text("$ " + finalPrice),
       );
 
       $("#flight-table > tbody").append(newRow);
