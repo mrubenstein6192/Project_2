@@ -232,18 +232,14 @@ $(document).ready(function () {
   }
 });
   
-//translator section
+//translator function
 $(document).on("click", "#translate-submit", function() {
   $("#translator-results").empty();
   
-
   var text = $("#text-input").val().trim().toLowerCase().replace(/ /g, "%20");
   var lang = $("#lang-input").val();
 
   var translateURL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20190515T140015Z.469d4504237e43c4.5ad62c8589944f5eb4db838232d59b19a991dc73&text=" + text + "&lang=" + lang + "&options=1";
-  
-  console.log(text);
-  console.log(lang);
   
   $.ajax({
     url: translateURL,
@@ -254,8 +250,8 @@ $(document).on("click", "#translate-submit", function() {
     var result = response.text[0];
     console.log(result);
     $("#translator-results").append(result);
-  })
-})
+  });
+});
 
 
 
@@ -276,9 +272,8 @@ $("#new-search").on("click", function () {
   $("#search").show();
 })
 
+//flight finder function
 $(document).on("click", "#flight-submit", function() {
-
-  
 
   var origin = $("#origin").val().trim().toLowerCase().replace(/ /g, "%20");
   var destination = $("#destination").val().trim().toLowerCase().replace(/ /g, "%20");
@@ -306,7 +301,7 @@ $(document).on("click", "#flight-submit", function() {
   })
     .then(function(response){
       console.log(response);
-      console.log(response.departDate);
+      
       var originCap = origin.toUpperCase().replace(/%20/g, " ");
       var destinationCap = destination.toUpperCase().replace(/%20/g, " ");
       
