@@ -1,6 +1,9 @@
 const express = require("express");
+
 const mongoose = require("mongoose");
+
 const cookieParser = require("cookie-parser");
+
 const logger = require("morgan");
 
 const app = express();
@@ -22,6 +25,7 @@ mongoose.connect(mongoUri, {
 });
 
 const routes = require("./routes");
+
 app.use(routes);
 
 app.listen(PORT, () => console.log(`Listening on Localhost:${PORT}`));
