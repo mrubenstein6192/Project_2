@@ -314,7 +314,7 @@ $(document).on("click", "#flight-submit", function () {
       );
 
       $("#flight-table > tbody").append(newRow);
-
+      $("#startDate").val(departDate);
     });
 });
 
