@@ -295,9 +295,21 @@ $(document).on("click", "#flight-submit", function () {
     })
     .then(function (response) {
       console.log(response);
-      console.log(response.tripset[0].shareURL);
+      console.log(response.tripset[0].duration);
       var originCap = origin.toUpperCase().replace(/%20/g, " ");
       var destinationCap = destination.toUpperCase().replace(/%20/g, " ");
+      var time = response.tripset[0].duration;
+
+      function timeConvert(n) {
+        var num = n;
+        var hours = (num / 60);
+        var rhours = Math.floor(hours);
+        var minutes = (hours - rhours) * 60;
+        var rminutes = Math.round(minutes);
+        return rhours + " hr : " + rminutes + " min.";
+        }
+      var convertedTime = timeConvert(time);
+      console.log(convertedTime);
 
       //if-else statement for cheapest price
       var finalPrice;
@@ -310,7 +322,8 @@ $(document).on("click", "#flight-submit", function () {
       var newRow = $("<tr>").append(
         $("<td>").text(originCap + " to " + destinationCap),
         $("<td>").text(response.departDate),
-        $("<td>").text("$ " + finalPrice),
+        $("<td>").text("$" + finalPrice),
+        $("<td>").text(convertedTime)
       );
 
       $("#flight-table > tbody").append(newRow);
