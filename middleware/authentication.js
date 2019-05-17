@@ -1,4 +1,6 @@
+/* eslint-disable no-underscore-dangle */
 const jwt = require("jsonwebtoken");
+
 const secret = "supersecret"
 
 const withAuth = (req, res, next) => {
