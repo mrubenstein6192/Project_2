@@ -28,10 +28,11 @@
             </form>
           </div>
         </div>
-    
-    
+
+
         <!-- results field for weather, events, and translator -->
         <div class="card" id="results">
+      
             <div class = "container my-3">
                 <div class="row">
                   <div class = col>
@@ -125,7 +126,8 @@
             </div>
             <div class="translator mt-3">
               <div class="card">
-                <div class="card-header"><a name = "translator"></a><strong>Flying International? Translate Key Phrases:</strong></div>
+                <div class="card-header"><a name="translator"></a><strong>Flying International? Translate Key
+                    Phrases:</strong></div>
                 <div class="card-body">
                   <div class="container">
                     <div class="row">
@@ -181,7 +183,7 @@
             <!-- Event Form  -->
             <div class="EventFinder mt-5">
               <div class="card">
-                <div class="card-header"><a name = "eventFinder"></a><strong>Event Finder</strong></div>
+                <div class="card-header"><a name="eventFinder"></a><strong>Event Finder</strong></div>
                 <div class="card-body">
                   <div class="container">
                     <div class="row">
@@ -234,6 +236,59 @@
                 </div>
               </div>
             </div>
+            <!-- start of flight status -->
+            <div class="flightStatus my-3">
+              <div class="card">
+                <div class="card-header">Flight Status</div>
+                <div class="card-body" id="status-results">
+                  <div class="containter">
+                    <div class="row">
+                      <form>
+                        <div class="col-md-12 ">
+                          <input class="form-control" type="text" id="flight-num-input"
+                            placeholder="Enter Flight Number">
+                        </div>
+                        <div class="col-md-12">
+                          <select class="custom-select" id="carrier-input">
+                            <option selected>Select Carrier</option>
+                            <option value="AA">AMERICAN AIRLINES</option>
+                            <option value="DL">DELTA AIR LINES</option>
+                            <option value="UA">UNITED AIRLINES</option>
+                            <option value="WN">SOUTHWEST AIRLINES</option>
+                            <option value="NK">SPIRIT AIRLINES</option>
+                            <option value="JBU">JET BLUE</option>
+                            <option value="AC">AIR CANADA</option>
+                            <option value="AF">AIR FRANCE</option>
+                            <option value="CA">AIR CHINA</option>
+                            <option value="UAE">EMIRATES</option>
+                            <option value="BA">BRITISH AIRWAYS</option>
+                            <option value="JL">JAPAN AIRLINES</option>
+                            <option value="QF">QANTAS AIRWAYS</option>
+                          </select>
+                        </div>
+                        <div class=" col-md-12">
+                          <input class="form-control" type="date" id="flight-date">
+                        </div>
+                        <button type="button" id="flight-status-submit" class="btn btn-primary col-md-8 ml-3">Submit</button>
+                      </form>
+                    </div>
+
+                    <div class="my-3">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="card">
+                            <div class="card-body" id="flight-status-results">
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end of flight status -->
           </div>
         </div>
       </div>
