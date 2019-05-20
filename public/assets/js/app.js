@@ -214,6 +214,7 @@ $(document).ready(function () {
   $("#logout").on("click", logout);
   $("#save-search").on("click", saveSearch);
   $("#get-searches").on("click", getSearch);
+  $("#flight-status-results").hide()
 
   const token = localStorage.getItem("accessToken");
   if (token) {
@@ -380,4 +381,43 @@ $(document).on("click", ".pastSearch", function () {
   $("#results").show();
   $("#city-input").val(pastLocation);
   $("#destination").val(pastLocation);
+})
+
+$("#flight-status-submit").on("click",
+function(){
+  console.log("thisisclicked")
+  $("#flight-status-results").show()
+  $("#flight-status-results").empty();
+  var carrier = $("#carrier-input").val();
+  var flightNum = $("#flight-num-input").val();
+  var flightDate = $("#flight-date").val().split("-").join("/");
+  
+  
+
+ var flightStatusUrl = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/" + carrier + "/"+ flightNum + "/arr/" + flightDate + "?appId=81188cad&appKey=39caf475c4c198e8f70ec33023ecc538&utc=false"
+
+ console.log(carrier,flightNum,flightDate);
+
+ const apiQuery = `/api/search/flights?carrier=${carrier}&flightNum=${flightNum}&flightDate=${flightDate}`
+
+  // /api/search/flights?carrier=
+
+  $.ajax({
+    url:apiQuery,
+    method: "Get"
+  }).then(function(response){
+   
+  $("#flight-status-results").append(
+    $("<P>").text("Departure Date: " + response.flightStatuses[0].departureDate.dateLocal),
+    $("<P>").text("Arrival Date: " + response.flightStatuses[0].arrivalDate.dateLocal),
+    $("<P>").text("Scheduled Air Minutes: " + response.flightStatuses[0].flightDurations.scheduledAirMinutes),
+    $("<P>").text("Departure Gate: " + response.flightStatuses[0].airportResources.departureGate),
+    $("<P>").text("Arrival Terminal: " + response.flightStatuses[0].airportResources.arrivalTerminal),
+    $("<P>").text("Arrival Gate: " +response.flightStatuses[0].airportResources.arrivalGate),
+    $("<P>").text("Baggage: " + response.flightStatuses[0].airportResources.baggage),
+
+  )
+    
+    
+  }) 
 })

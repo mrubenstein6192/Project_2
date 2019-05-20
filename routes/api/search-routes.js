@@ -1,5 +1,7 @@
 const router = require('express').Router();
 
+const { flight_status } = require('../../controllers/flight-status');
+
 const {
   getSearch,
   addSearch
@@ -7,11 +9,15 @@ const {
 
 const withAuth = require("../../middleware/authentication");
 
-router.use(withAuth);
 
 router
   .route("/")
-  .get(getSearch)
-  .post(addSearch);
+  .get(withAuth, getSearch)
+  .post(withAuth, addSearch);
+
+router
+.route('/flights')
+.get(flight_status);
+
 
 module.exports = router;
