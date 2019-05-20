@@ -295,14 +295,20 @@ $(document).on("click", "#flight-submit", function () {
     })
     .then(function (response) {
       console.log(response);
-      console.log(response.tripset[0].duration);
+      
+      //variables to append to page later
       var originCap = origin.toUpperCase().replace(/%20/g, " ");
       var destinationCap = destination.toUpperCase().replace(/%20/g, " ");
       var time = response.tripset[0].duration;
       var kayakURL = response.baseUrl;
       var flightShareURL = response.shareURL;
       var flightURL = kayakURL + flightShareURL;
-      console.log(flightURL);
+     
+      //create link to book flight
+      var a = $('<a />');
+      a.attr('href', flightURL);
+      a.attr("target", "_blank");
+      a.text("Book Now");
 
       function timeConvert(n) {
         var num = n;
@@ -322,12 +328,6 @@ $(document).on("click", "#flight-submit", function () {
       } else {
         finalPrice = response.cheapestPrice;
       };
-
-      var a = $('<a />');
-      a.attr('href', flightURL);
-      a.attr("target", "_blank");
-      a.text("Book Now");
-      
 
       var newRow = $("<tr>").append(
         $("<td>").text(originCap + " to " + destinationCap),
